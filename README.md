@@ -176,3 +176,45 @@ int main() {
     cout << array[0] << " ";
 }
 
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+int main() {
+    setlocale(LC_ALL, "RUS");
+    float array[18], a;
+
+    for (int i = 0; i < 18; i++)
+    {
+        cin >> a;
+        array[i] = a;
+    }
+    for (int i = 17; i >= 0; i--)
+    {
+        cout << array[i] << " ";
+    }
+}
+
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int n,a;
+    cin >> n;
+
+    int array[n];
+    for (int i = 0; i < n; i++)
+{
+    cin >> a;
+    array[i] = a;
+}
+
+    for (int i = n-1; i >= 0; i--)
+    {
+        cout << array[i] << " ";
+    }
+}
+
+
