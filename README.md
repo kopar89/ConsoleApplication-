@@ -217,4 +217,47 @@ int main()
     }
 }
 
+#include <iostream>
+#include <cmath>
+using namespace std;
+int main() {
+    setlocale(LC_ALL, "RUS");
+    int a, s = 0;
+    cin >> a;
+    while (a != 0)
+    {
+        if (s < a)
+        {
+            s = a;
+        }
+        cin >> a;
+    }
+   
+    cout << s << endl;
+}
+
+
+
+
+
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+int main() {
+    setlocale(LC_ALL, "RUS");
+    int a, s = 0;
+    cin >> a;
+    while (a != 0)
+    {
+        if (s < a)
+        {
+            s = a;
+        }
+        cin >> a;
+    }
+   
+    cout << s << endl;
+}
+
 
