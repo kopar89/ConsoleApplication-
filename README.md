@@ -261,3 +261,52 @@ int main() {
 }
 
 
+
+
+
+
+
+
+
+matrix
+#include <iostream>
+using namespace std;
+int main() {
+    setlocale(LC_ALL, "RUS");
+    const int a = 3;
+    const int s = 3;
+    int arr[a][s];
+    for (int i = 0; i < a; i++)
+    {
+        for (int j = 0; j < s; j++)
+        {
+            arr[i][j] = rand() % 1000;
+        }
+    }
+    for (int i = 0; i < a; i++)
+    {
+        for (int j = 0; j < s; j++)
+        {
+            if (i == j)
+            {
+                arr[i][j] = 5;
+              
+            }
+            cout << arr[i][j] << "\t";
+        }
+        cout << "\n";
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
