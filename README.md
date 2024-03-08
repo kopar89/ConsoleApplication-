@@ -299,11 +299,58 @@ int main() {
 }
 
 
+#include <iostream>
+using namespace std;
+int main() {
+    setlocale(LC_ALL, "RUS");
+    const int a = 4;
+    const int s = 4;
+    int arr[a][s];
+    for (int i = 0; i < a; i++)
+    {
+        for (int j = 0; j < s; j++)
+        {
+            arr[i][j] = 0;
+        }
+    }
+    for (int i = 0; i < a; i++)
+    {
+        for (int j = 0; j < s; j++)
+        {
+            if (i == j)
+            {
+                arr[i][j] = 2;
+              
+            }
+            if (i + 1 == j)
+            {
+                arr[i][j] = 1;
+            }
+            if (i - 1 == j)
+            {
+                arr[i][j] = 1;
+            }
+            cout << arr[i][j] << "\t";
+        }
+        cout << "\n";
+    }
+}
 
 
-
-
-
+#include <iostream>
+using namespace std;
+int main() {
+    setlocale(LC_ALL, "RUS");
+    int a,s,c = 0;
+    cin >> a;
+    while (a != 0)
+    {
+        s = a % 10;
+        c += s;
+        a = a / 10;
+    }
+    cout << c;
+}
 
 
 
