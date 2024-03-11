@@ -352,7 +352,24 @@ int main() {
     cout << c;
 }
 
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+using namespace std;
 
+int main() {
+	double a;
+	double c = 0, c1 = 0;
+	cin >> a;
+	while (a != 0)
+	{
+		c += a;
+		c1 += 1;
+		cin >> a;
+	}
+	cout << setprecision(11) << fixed;
+	cout << c / c1;
+}
 
 
 
