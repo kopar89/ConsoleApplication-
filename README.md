@@ -372,5 +372,65 @@ int main() {
 }
 
 
+#include <iostream>
+#include <cmath>
+#include <vector>
+using namespace std;
+int main() {
+    setlocale(LC_ALL, "RUS");
+    int n;
+    cin >> n;
+    vector <int> a(n);
+    for (int i = 0; i < n; i++)
+    {
+        cin >> a[i];
+        if (i % 2 == 0)
+        {
+            cout << a[i] << " ";
+        }
+    }
+}
+
+
+#include <iostream>
+#include <cmath>
+#include <vector>
+using namespace std;
+int main() {
+    setlocale(LC_ALL, "RUS");
+    int n;
+    cin >> n;
+    vector <int> a(n);
+    for (int i = 0; i < n; i++)
+    {
+        cin >> a[i];
+        if (a[i] % 2 == 0)
+        {
+            cout << a[i] << " ";
+        }
+    }
+}
+
+
+#include <iostream>
+#include <cmath>
+#include <vector>
+using namespace std;
+int main() {
+    setlocale(LC_ALL, "RUS");
+    int n, c = 0;
+    cin >> n;
+    vector <int> a(n);
+    for (int i = 0; i < n; i++)
+    {
+        cin >> a[i];
+        if (a[i] > 0)
+        {
+            c += 1;   
+        }
+    }
+    cout << c;
+}
+
 
 
