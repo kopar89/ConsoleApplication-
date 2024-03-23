@@ -444,3 +444,46 @@ int main()
 	cout << (int)trunc(a*10)%10;
 }
 
+
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    srand(time(0));
+    setlocale(LC_ALL, "rus");
+    int a, b;
+    cout << "Введите размер массива: ";
+    cin >> a;
+    int* nums = new int[a];
+
+    for (int i = 0; i < a; i++)
+    {
+        nums[i] = rand() % 100;
+        cout << nums[i] << " ";
+    }
+    cout << "\n";
+    cout << "Введите количество элементов, которое хотите добавить ";
+    cin >> b;
+    int* numss = new int[a+b];
+    for (int i = 0; i < a; i++)
+    {
+        numss[i] = nums[i];
+    }
+    cout << "Введите элементы, которые хотите добавить: ";
+    for (int i = a; i < a+b; i++)
+    {
+        cin >> numss[i];
+        
+    }
+    for (int i = 0; i < a + b; i++)
+    {
+        cout << numss[i] << " ";
+    }
+
+    
+}
+
+
+
