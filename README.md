@@ -487,3 +487,185 @@ int main()
 
 
 
+
+
+// /*/ комментарий на весь код
+/*/
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <ctime>
+using namespace std;
+
+int main()
+{
+    setlocale(LC_ALL, "RUS");
+    srand(time(0));
+    int a, k=0;
+    cout << "Введите размер массива: ";
+    cin >> a;
+    int* arr = new int[5];
+    cout << "Ваш массив: ";
+    for (int i = 0; i < a; ++i)
+    {
+        arr[i] = rand() % 10;
+        cout <<arr[i] << " ";
+        k += sizeof(arr[i]);
+       
+    }
+    cout << "\n";
+    cout << "Размер массива: " << k / sizeof(int);
+    cout << endl;
+    cout << "Введите элемент, который хотите удалить: ";
+    cin >> k;
+    a--;
+    for (int i = k - 1; i < a; i++) {
+        arr[i] = arr[i + 1];
+        
+    }
+    
+    int c = 0;
+    cout << "Измененный массив: ";
+    for (int i = 0; i < a; i++)
+    {
+        cout << arr[i] << " ";
+        c += sizeof(arr[i]);
+    }
+
+    cout << endl;
+    cout << "Измененный массив имеет размер: " << c / sizeof(int);
+    cout << endl;
+    int dob;
+    cout << "Введите количество элементов, которые хотите добавить в массив: ";
+    cin >> dob;
+
+    if (dob < 1)
+    {
+        cout << "ERROR" << endl;
+        return 0;
+    }
+
+    int* arr2 = new int[a + dob];
+    for (int i = 0; i < a; ++i)
+    {
+        arr2[i+dob] = arr[i];
+    }
+
+    cout << "Введите элементы, которые хотите добавить: ";
+    for (int i = 0; i < dob; ++i)
+    {
+        cin >> arr2[i];
+    }
+
+
+    int j = 0;
+    cout << "Список с добавленными элементами: ";
+
+    for (int i = 0; i < a + dob; i++)
+    {
+        cout << arr2[i] << " ";
+        j += sizeof(arr2[i]);
+    }
+    cout << endl;
+    cout << "Измененный массив с добавленными значениями имеет размер: " << j / sizeof(int);
+    delete[] arr;
+    delete[] arr2;
+
+    return 0;
+}
+/*/
+// /*/ коментарии
+
+
+/*/
+#include <iostream>
+
+using namespace std;
+int main()
+{
+    int i = 2;
+    for (i; i < 11; i+=2)
+    {
+        cout << i << endl;
+    }
+
+
+}
+/*/
+
+/*/
+#include <iostream>
+using namespace std;
+
+void myFunction(int x = 5)
+{
+    int a;
+    cin >> a;
+    cout << x + a;
+}
+
+int main() {
+    myFunction();
+    return 0;
+}
+/*/
+
+
+
+
+#include <iostream>
+#include <cmath>
+#include <ctime>
+using namespace std;
+int main()
+{
+    const int row = 3;
+    const int col = 4;
+    int arr[row][col];
+
+    srand(time(0));
+    for (int i = 0; i < row; i++)
+    {
+        for (int j = 0; j < col; j++)
+        {
+            arr[i][j] = rand() % 10; 
+        }
+    }
+
+
+    for (int i = 0; i < row; i++)
+    {
+        for (int j = 0; j < col; j++)
+        {
+            cout << arr[i][j] << "\t";
+        }
+        cout << endl;
+    }
+
+    for (int i = 0; i < row; i++)
+    {
+        for (int j = 0; j < col; j++)
+        {
+            if (i == j)
+            {
+                arr[i][j] += 1;
+            }
+            cout << arr[i][j] << "\t";
+        }
+        cout << "\n";
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
