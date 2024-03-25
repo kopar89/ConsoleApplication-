@@ -658,6 +658,73 @@ int main()
 
 
 
+#include <iostream>
+#include <cmath>
+#include <ctime>
+using namespace std;
+int main()
+{
+
+    setlocale(LC_ALL, "RUS");
+
+    int row;
+    cout << "Введите SIZE: "; cin >> row;
+
+    int** arr = new int* [row];
+    for (int i = 0; i < row; i++)
+    {
+        arr[i] = new int[row];
+    }
+
+    srand(time(0));
+    for (int i = 0; i < row; i++)
+    {
+        for (int j = 0; j < row; j++)
+        {
+            arr[i][j] = rand() % 100; 
+        }
+    }
+
+    cout << "Оригинальный массив";
+    cout << "\n";
+    for (int i = 0; i < row; i++)
+    {
+        for (int j = 0; j < row; j++)
+        {
+            cout << arr[i][j] << "\t";
+        }
+        cout << "\n";
+    }
+
+
+    cout << "Измененный массив" << endl;
+    int c = 0;
+    for (int i = 0; i < row; i++)
+    {
+        bool hasZero = false; 
+        for (int j = 0; j < row; j++) 
+        {
+            cout << arr[j][i] << "\t";
+            if (arr[j][i] == 0)
+            {
+                hasZero = true;
+                break; 
+            }
+        }
+        if (!hasZero)
+        {
+            c += 1; 
+        }
+        cout << endl;
+    }
+
+    cout << "Количество столбцов без нулей: " << c << endl;
+
+    return 0;
+    delete[] arr;
+}
+
+
 
 
 
