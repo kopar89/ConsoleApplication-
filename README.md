@@ -728,7 +728,46 @@ int main()
 
 
 
+#include <iostream>
+#include <ctime>
+using namespace std;
 
+int main()
+{
+    srand(time(0));
+    setlocale(LC_ALL, "RUS");
+    int size;
+    cout << "Введите размер массива: ";
+    cin >> size;
+    int* arr = new int[size];
+    cout << "Массив: ";
+    int c = arr[0];
+    for (int i = 0; i < size; ++i)
+    {
+        arr[i] = rand() % 100;
+        cout << arr[i] << " ";
+    }
+    cout << "\n";
+    for (int i = 0; i < size; ++i)
+    {
+        if (arr[i] > c)
+        {
+            c = arr[i];
+        }
+    }
+    cout << "Максимальный элемент массива: " << c << "\n";
+    int lol = arr[0];
+    for (int i = 0; i < size; ++i)
+    {
+        if (arr[i] < lol)
+        {
+            lol = arr[i];
+        }
+    }
+    cout << "Минимальный элемент массива: " << lol << "\n";
+    delete[] arr;
+    return 0;
+}
 
 
 
