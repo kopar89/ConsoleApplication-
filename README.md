@@ -771,6 +771,272 @@ int main()
 
 
 
+/*/
+#include <iostream>
+#include <ctime>
+using namespace std;
+int main()
+{
+    setlocale(LC_ALL, "RUS");
+    srand(time(0));
+    const int rows = 3; 
+    const int cols = 3;
+    int arr[rows][cols];
+    cout << "Оригинальный массив" << endl;
+    for (int i = 0; i < rows; i++)
+    {
+        for (int j = 0; j < cols; j++)
+        {
+            arr[i][j] = rand() % 100;
+            cout << arr[i][j] << " ";
+        }
+        cout << '\n';
+    }
+    cout << "Изменный массив" << endl;
+    for (int i = 0; i < rows; i++)
+    {
+        for (int j = 0; j < cols; j++)
+        {
+            if ((i == rows - 2 && j == cols - 2) || (i == rows - 1 && j == cols - 2) || (i == rows - 1 && j == cols - 3))
+            {
+                arr[i][j] = 1;
+            }
+            else 
+            {
+                arr[i][j] = 0;
+            }
+            cout << arr[i][j] << " ";
+        }
+        cout << '\n';
+    }
+}/*/
+
+/*/
+#include <iostream>
+#include <ctime>
+using namespace std;
+int main()
+{
+    setlocale(LC_ALL, "RUS");
+    int j = 0;
+    int arr[] = { 1, 2, 3, 4, 5 };
+    for (int i = 0; i < 5; i++)
+    {
+        cout << arr[i] << " ";
+        j += sizeof(arr[i]);
+    }
+    cout << "\n";
+    cout << "Размер массива " << j / sizeof(int);
+}/*/
+
+
+
+
+/*/
+#include <iostream>
+#include <ctime>
+using namespace std;
+int main()
+{
+    setlocale(LC_ALL, "RUS");
+    int row, col, nac, kon;
+    cout << "Введите количество строк: ";
+    cin >> row;
+    cout << "Введите количество столбцов: ";
+    cin >> col;
+    cout << "Введите начало диапазона: ";
+    cin >> nac;
+    cout << "Введите конец диапазона: ";
+    cin >> kon;
+
+    srand(time(0));
+    int** arr = new int* [row];
+
+    for (int i = 0; i < row; i++)
+    {
+        arr[i] = new int[col];
+    }
+
+    cout << "Оригинальный массив" << endl;
+    for (int i = 0; i < row; i++)
+    {
+        for (int j = 0; j < col; j++)
+        {
+            arr[i][j] = nac + rand() % (kon - nac + 1);
+            cout << arr[i][j] << "\t";
+        }
+        cout << endl;
+    }
+
+    int c = 0;
+    for (int i = 0; i < col; i++)
+    {
+        bool zero = false;
+        for (int j = 0; j < row; j++)
+        {
+            if (arr[j][i] == 0)
+            {
+                zero = true;
+                break;
+            }
+        }
+        if (!zero)
+        {
+            c += 1;
+        }
+    }
+
+    cout << "Количество столбцов без нулей: " << c << endl;
+
+    int* sums = new int[col];
+
+    for (int i = 0; i < row; i++)
+    {
+        int v = 0;
+        for (int j = 0; j < col; j++)
+        {
+            if (arr[i][j] > 0 && arr[i][j] % 2 == 0)
+            {
+                v += arr[i][j];
+            }
+        }
+        sums[i] = v;
+        cout <<  "Сумма элементов в " << i+1 << " строке равна: " << sums[i] << " " << endl;
+    }
+
+    for (int i = 0; i < row - 1; i++)
+    {
+        for (int j = 0; j < col - i - 1; j++)
+        {
+            if (sums[j] > sums[j + 1])
+            {
+                swap(sums[j], sums[j + 1]);
+                swap(arr[j], arr[j + 1]);
+            }
+        }
+    }
+
+    cout << "Отсортированный массив по сумме строк:" << endl;
+    for (int i = 0; i < row; i++)
+    {
+        for (int j = 0; j < col; j++)
+        {
+            cout << arr[i][j] << "\t";
+        }
+        cout << "Сумма: " << sums[i] << endl;
+    }
+
+    delete[] arr;
+    delete[] sums;
+    return 100;
+}/*/
+
+
+/*/
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+double F(double x, double a, double b, double c) {
+    if (x + 5 < 0 && x < 0) {
+        return 1 / (a * x) - b;
+    }
+    else if (x + 5 > 0 && x < c && c < 0) {
+        return (1 / x - a) / x;
+    }
+    else {
+        return 10 * x / (c - 4);
+    }
+}
+
+int main() {
+    double a, b, c, x_start, x_end, dx;
+    setlocale(LC_ALL, "RUS");
+    cout << "Введите значения a, b, c: ";
+    cin >> a >> b >> c;
+
+    cout << "Введите интервал [x_start, x_end] и шаг dx: ";
+    cin >> x_start >> x_end >> dx;
+
+    cout << "Значения функции F(x) на интервале [" << x_start << ", " << x_end << "] с шагом " << dx << ":\n";
+
+    for (double x = x_start; x <= x_end; x += dx) {
+        double result = F(x, a, b, c);
+        cout << "F(" << x << ") = " << result << endl;
+    }
+
+    return 0;
+}
+/*/
+
+/*/
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+template<typename T>
+T F(T x, T a, T b, T c) {
+    if (x + 5 < 0 && x < 0) {
+        return 1 / (a * x) - b;
+    }
+    else if (x + 5 > 0 && x < c && c < 0) {
+        return (1 / x - a) / x;
+    }
+    else {
+        return 10 * x / (c - 4);
+    }
+}
+
+int main() {
+    double a, b, c, x_start, x_end, dx;
+    setlocale(LC_ALL, "RUS");
+    cout << "Введите значения a, b, c: ";
+    cin >> a >> b >> c;
+
+    cout << "Введите интервал [x_start, x_end] и шаг dx: ";
+    cin >> x_start >> x_end >> dx;
+
+    cout << "Значения функции F(x) на интервале [" << x_start << ", " << x_end << "] с шагом " << dx << ":\n";
+
+    for (double x = x_start; x <= x_end; x += dx) {
+        double result = F(x, a, b, c);
+        cout << "F(" << x << ") = " << result << endl;
+    }
+
+    return 0;
+}
+/*/
+
+
+
+
+
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+template<typename T>
+void F(T& a, T& b) // & указатель на адрес памяти свайпаем не значения, а адреса
+{
+    swap(a, b);
+}
+
+int main()
+{
+    setlocale(LC_ALL, "RUS");
+    int a, b;
+    cout << "Введите значения a, b: ";
+    cin >> a >> b;
+
+    F(a, b);
+
+    cout << a << " " << b << " ";
+
+    return 0;
+}
 
 
 
